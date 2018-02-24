@@ -156,8 +156,13 @@ class SeLogerService: # SeLoger service
         df.prix = df.prix.astype(int)
         df.anneeconstruct = df.anneeconstruct.astype(int, errors='ignore')
         df['nbPiece'] = df.nbPiece.astype(int, errors='ignore')
-        df = df.assign(prix_m2=lambda x: x.prix / x.surface)
 
+        # Add columns: prix_m2, Loyer théorique, renta théorique, Prix d'achat théorique, Réduction à obtenir
+        df = df.assign(z_prix_m2=lambda x: x.prix / x.surface)
+        df = df.assign(z_loyer_theorique=lambda x: 4.67 * x.surface + 295)
+        df = df.assign(z_rentabilite_theorique=lambda x: x.z_loyer_theorique * 12 / (x.prix * 1.08))
+        df = df.assign(z_prix_achat_theorique=lambda x: 120 * x.z_loyer_theorique / 1.08)
+        df = df.assign(z_reduc_a_negocier=lambda x: (x.prix - x.z_prix_achat_theorique) / x.prix)
         # print(df.dtypes)
 
         return df
