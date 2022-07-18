@@ -1,7 +1,8 @@
-output/*
-SeLogerScanner.code-workspace
-Test.py
-search-mini.xml
-search-small.xml
-.vscode/*
-__pycache__/*
+credentials.json
+token.json
+.env
+__pycache__
+build
+dist
+.vscode
+*.egg-info

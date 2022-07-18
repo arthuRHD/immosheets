@@ -1,0 +1,11 @@
+class RealEstateType(object):
+    APPARTMENT = "1"
+    HOUSE = "2"
+    CASTLE = "2048"
+    LOFT_OR_STUDIO = "128"
+    HOTEL = "4096"
+    PARKING = "4"
+    FIELD = "8"
+    BUILDING = "512"
+    WORKING_PLACE = "64"
+    STORE = "32"
