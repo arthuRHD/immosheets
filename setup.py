@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="seloger-google-sheets",  # Replace with your own username
-    version="1.0.0",
+    version="1.0.5",
     author="Arthur RICHARD",
     author_email="arthur.richard@protonmail.com",
     description="Tired of searching with your mouse ? Let's automate the process.",

@@ -2,13 +2,13 @@
 
 Tired of searching with your mouse ? Let's automate the process.
 
-I'm currently only supporting seloger and google sheets as third parties. For other integrations, feel free to write an issue.
+I'm currently only supporting seloger.com and google sheets as third parties. For other integrations, feel free to write an issue.
 
 ## Genereting credentials
 
 ### Google sheets
 
-To learn how to create credentials for a desktop application, go to [Create credentials](https://developers.google.com/workspace/guides/create-credentials).
+To learn how to create credentials, go to [Create credentials](https://developers.google.com/workspace/guides/create-credentials).
 
 Once you create the credentials, make sure the downloaded JSON file is saved as credentials.json. Then move the file to your working directory and fill the path when instanciating the service.
 
