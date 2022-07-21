@@ -2,6 +2,8 @@
 
 Tired of searching with your mouse ? Let's automate the process.
 
+This is meant to be used as a package for your bot. 
+
 I'm currently only supporting seloger.com and google sheets as third parties. For other integrations, feel free to write an issue.
 
 ## Genereting credentials
