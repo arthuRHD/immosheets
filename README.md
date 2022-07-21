@@ -14,7 +14,7 @@ Once you create the credentials, make sure the downloaded JSON file is saved as 
 
 ### SeLoger
 
-An account on *RapidAPI* is needed to retieve the API key.
+An account on *RapidAPI* is needed to retrieve an API key.
 
 [https://rapidapi.com/apidojo/api/seloger/](https://rapidapi.com/apidojo/api/seloger/)
 
