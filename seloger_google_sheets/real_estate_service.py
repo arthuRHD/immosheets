@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from seloger_google_sheets.real_estate import RealEstate
-from seloger_google_sheets.search_query import SearchQuery
+from .real_estate import RealEstate
+from .search_query import SearchQuery
 
 class RealEstateService(ABC):
     @abstractmethod

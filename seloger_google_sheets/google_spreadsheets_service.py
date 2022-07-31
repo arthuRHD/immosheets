@@ -1,8 +1,8 @@
 import os
 from typing import List
-from seloger_google_sheets.real_estate import RealEstate
-from seloger_google_sheets.settings import settings
-from seloger_google_sheets.spreadsheet_service import SpreadsheetsService
+from .real_estate import RealEstate
+from .settings import settings
+from .spreadsheet_service import SpreadsheetsService
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -15,13 +15,15 @@ class GoogleSpreadsheetsService(SpreadsheetsService):
     
     def __init__(self, credentials_file_path: str) -> None:
         self.scope = [settings.google_api_scope]
+        self.credentials_file_path = credentials_file_path
         super().__init__()
         self.range: str = settings.google_sheets_range_name
         self.service = build('sheets', 'v4', credentials=self.creds)
     
     def auth(self):        
-        if os.path.exists('token.json'):
-            self.creds = Credentials.from_authorized_user_file('token.json', self.scope)
+        token_path: str = os.path.join(os.getcwd(), 'token.json')
+        if os.path.exists(token_path):
+            self.creds = Credentials.from_authorized_user_file(token_path, self.scope)
             
         if not self.creds or not self.creds.valid:
             if self.creds and self.creds.expired and self.creds.refresh_token:
@@ -30,7 +32,7 @@ class GoogleSpreadsheetsService(SpreadsheetsService):
                 flow = InstalledAppFlow.from_client_secrets_file(
                     self.credentials_file_path, self.scope)
                 self.creds = flow.run_local_server(port=0)
-            with open('token.json', 'w') as token:
+            with open(token_path, 'w') as token:
                 token.write(self.creds.to_json())
                 
     def use(self, new_google_sheet_id: str):

@@ -1,10 +1,10 @@
 from typing import List
 
 import requests
-from seloger_google_sheets.seloger.search_query import SelogerSearchQuery
-from seloger_google_sheets.real_estate import RealEstate
-from seloger_google_sheets.real_estate_service import RealEstateService
-from seloger_google_sheets.settings import settings
+from .seloger_search_query import SelogerSearchQuery
+from .real_estate import RealEstate
+from .real_estate_service import RealEstateService
+from .settings import settings
 
 
 class SelogerService(RealEstateService):

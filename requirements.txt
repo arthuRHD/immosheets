@@ -1,7 +1,0 @@
-pydantic==1.9.1
-requests==2.22.0
-google-api-core==2.8.2
-google-api-python-client==2.52.0
-google-auth==2.9.0
-google-auth-httplib2==0.1.0
-google-auth-oauthlib==0.5.2

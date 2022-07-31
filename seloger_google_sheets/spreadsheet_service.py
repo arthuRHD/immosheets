@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from seloger_google_sheets.real_estate import RealEstate
+from .real_estate import RealEstate
 
 class SpreadsheetsService(ABC):
     """Meant to be inherited"""
