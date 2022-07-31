@@ -32,10 +32,8 @@ pip install seloger-google-sheets
 
 ```py
 from typing import List
-from seloger_google_sheets import RealEstate
-from seloger_google_sheets.google import GoogleSpreadsheetsService
-from seloger_google_sheets.seloger import (SelogerService, SelogerSearchQuery, RealEstateFilter, 
-RealEstateType, TransactionType)
+from seloger_google_sheets import (SelogerService, SelogerSearchQuery, RealEstateFilter, 
+RealEstateType, TransactionType, RealEstate, GoogleSpreadsheetsService)
 
 
 seloger = SelogerService(api_key='my_seloger_api_key')
