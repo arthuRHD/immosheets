@@ -1,7 +1,7 @@
 import os
-from .real_estate import RealEstate
-from .settings import settings
-from .spreadsheet_service import SpreadsheetsService
+from ..real_estate import RealEstate
+from ..settings import settings
+from ..reporting_service import ReportingService
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -9,7 +9,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-class GoogleSpreadsheetsService(SpreadsheetsService):
+class GoogleSpreadsheetsService(ReportingService):
     """Override the default service to communicate with Google Sheets API."""
     
     def __init__(self, credentials_file_path: str) -> None:

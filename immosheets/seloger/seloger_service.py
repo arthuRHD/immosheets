@@ -1,9 +1,9 @@
 import requests
 from .seloger_search_query import SelogerSearchQuery
-from .real_estate import RealEstate
-from .real_estate_service import RealEstateService
-from .settings import settings
-from .target import Target
+from ..real_estate import RealEstate
+from ..real_estate_service import RealEstateService
+from ..settings import settings
+from ..target import Target
 
 class SelogerService(RealEstateService):
     def __init__(self, api_key: str) -> None:

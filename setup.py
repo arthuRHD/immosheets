@@ -4,15 +4,15 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="seloger-google-sheets",  # Replace with your own username
+    name="immosheets",  # Replace with your own username
     version="1.0.6",
     author="Arthur RICHARD",
     author_email="arthur.richard@protonmail.com",
     description="Tired of searching with your mouse ? Let's automate the process.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/arthuRHD/seloger-google-sheets",
-    packages=['seloger_google_sheets'],
+    url="https://github.com/arthuRHD/immosheets",
+    packages=['immosheets'],
     install_requires=[
         "pydantic==1.9.1",
         "requests==2.22.0",
