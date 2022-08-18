@@ -1,5 +1,4 @@
 import os
-from typing import List
 from .real_estate import RealEstate
 from .settings import settings
 from .spreadsheet_service import SpreadsheetsService
@@ -50,7 +49,7 @@ class GoogleSpreadsheetsService(SpreadsheetsService):
         self.service.spreadsheets().values().clear(spreadsheetId=self.sheet_id, range=self.range).execute()
         return self
     
-    def insert(self, real_estates: List[RealEstate]):
+    def insert(self, real_estates: list[RealEstate]):
         try:
             sheet = self.service.spreadsheets()
             to_insert = [['price', 'bedrooms', 'rooms', 'city', 'm²', 'link', 'contact', 'email', 'tel']]

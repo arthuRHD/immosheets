@@ -22,7 +22,7 @@ setup(
         "google-auth-httplib2==0.1.0",
         "google-auth-oauthlib==0.5.2"
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.10',
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

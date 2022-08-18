@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import List
 
 from .real_estate import RealEstate
 
@@ -16,7 +15,7 @@ class SpreadsheetsService(ABC):
         """Connect to the chosen third service"""
         
     @abstractmethod
-    def insert(self, real_estates: List[RealEstate]):
+    def insert(self, real_estates: list[RealEstate]):
         """Insert real estates data inside the spreadsheet""" 
     
     @abstractmethod

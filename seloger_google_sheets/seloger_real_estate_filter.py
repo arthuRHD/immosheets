@@ -1,4 +1,4 @@
-class RealEstateFilter(object):
+class SelogerRealEstateFilter:
     HOT = "0"
     PRICE_ASC = "1"
     PRICE_DESC = "2"
