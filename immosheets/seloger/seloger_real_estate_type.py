@@ -1,4 +1,4 @@
-class RealEstateType(object):
+class SelogerRealEstateType:
     APPARTMENT = "1"
     HOUSE = "2"
     CASTLE = "2048"

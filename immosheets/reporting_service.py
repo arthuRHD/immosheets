@@ -1,9 +1,8 @@
 from abc import ABC, abstractmethod
-from typing import List
 
 from .real_estate import RealEstate
 
-class SpreadsheetsService(ABC):
+class ReportingService(ABC):
     """Meant to be inherited"""
     
     def __init__(self) -> None:
@@ -16,9 +15,9 @@ class SpreadsheetsService(ABC):
         """Connect to the chosen third service"""
         
     @abstractmethod
-    def insert(self, real_estates: List[RealEstate]):
-        """Insert real estates data inside the spreadsheet""" 
+    def insert(self, real_estates: list[RealEstate]):
+        """Insert real estates data""" 
     
     @abstractmethod
     def clear(self):
-        """Clears the whole spreadsheet"""
+        """Clears data"""

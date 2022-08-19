@@ -1,4 +1,4 @@
-class TransactionType(object):
+class SelogerTransactionType:
     RENT = "1"
     BUY = "2"
     VIAGER = "5"
