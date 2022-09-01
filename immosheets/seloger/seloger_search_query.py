@@ -65,6 +65,7 @@ class SelogerSearchQuery(BaseModel):
         if separator in zipcodes:
             for code in zipcodes.split(separator):
                 assert code.isdigit(), f"{code} are not digits"
-        assert zipcodes.isdigit(), f"{zipcodes} are not digits"
+        else:
+            assert zipcodes.isdigit(), f"{zipcodes} are not digits"
 
         return zipcodes

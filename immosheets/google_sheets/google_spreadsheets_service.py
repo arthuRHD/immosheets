@@ -1,4 +1,5 @@
 import os
+import logging
 from ..real_estate import RealEstate
 from ..settings import settings
 from ..reporting_service import ReportingService
@@ -14,6 +15,7 @@ class GoogleSpreadsheetsService(ReportingService):
     
     def __init__(self, credentials_file_path: str) -> None:
         self.scope = [settings.google_api_scope]
+        self.logger = logging.getLogger(__name__)
         self.credentials_file_path = credentials_file_path
         super().__init__()
         self.range: str = settings.google_sheets_range_name
@@ -43,10 +45,12 @@ class GoogleSpreadsheetsService(ReportingService):
         :rtype: GoogleSpreadsheetsService
         """
         self.sheet_id = new_google_sheet_id
+        self.logger.info(f"using {self.sheet_id}.")
         return self
     
     def clear(self):
         self.service.spreadsheets().values().clear(spreadsheetId=self.sheet_id, range=self.range).execute()
+        self.logger.info(f"{self.sheet_id} cells cleared.")
         return self
     
     def insert(self, real_estates: list[RealEstate]):
@@ -62,7 +66,7 @@ class GoogleSpreadsheetsService(ReportingService):
                 body={'values': to_insert}
             ).execute()
 
-            print(f"{result.get('updates').get('updatedCells')} cells appended to {self.sheet_id}.")
+            self.logger.info(f"{result.get('updates').get('updatedCells')} cells appended to {self.sheet_id}.")
             
         except HttpError as err:
-            print(err)
+            self.logger.error(err)

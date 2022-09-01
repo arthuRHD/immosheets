@@ -47,8 +47,10 @@ query = SelogerSearchQuery(
     sortBy=SelogerRealEstateFilter.NEWEST
 )
 
-results: list[RealEstate] = seloger.search(query)
-google_sheets.use("my_sheet_id").clear().insert(results)
+google_sheets.use("my_sheet_id").clear()
+
+for result in seloger.search(query):
+    google_sheets.insert(result
 ```
 
 ### Do your own integration
