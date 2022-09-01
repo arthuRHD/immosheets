@@ -1,21 +1,21 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="seloger-google-sheets",  # Replace with your own username
-    version="1.0.6",
+    name="immosheets",  # Replace with your own username
+    version="1.0.13",
     author="Arthur RICHARD",
     author_email="arthur.richard@protonmail.com",
     description="Tired of searching with your mouse ? Let's automate the process.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/arthuRHD/seloger-google-sheets",
-    packages=['seloger_google_sheets'],
+    url="https://github.com/arthuRHD/immosheets",
+    packages=find_packages(),
     install_requires=[
         "pydantic==1.9.1",
-        "requests==2.22.0",
+        "requests==2.28.1",
         "google-api-core==2.8.2",
         "google-api-python-client==2.52.0",
         "google-auth==2.9.0",

@@ -1,5 +1,5 @@
 from pydantic import BaseModel, validator
-from .settings import settings
+from ..settings import settings
 
 
 class SelogerSearchQuery(BaseModel):
@@ -21,43 +21,43 @@ class SelogerSearchQuery(BaseModel):
     sortBy: str | None
 
     @validator('maximumPrice')
-    def price_is_greater_than_zero(self, price: str | None):
+    def price_is_greater_than_zero(cls, price: str | None):
         if price is not None:
             assert int(price) > 0, "maximumPrice is lesser then 0"
         return price
 
     @validator('minimumFloor')
-    def floor_is_greater_than_zero(self, floor: str | None):
+    def floor_is_greater_than_zero(cls, floor: str | None):
         if floor is not None:
             assert int(floor) > 0, "minimumFloor is lesser then 0"
         return floor
 
     @validator('minimumLivingArea')
-    def living_area_is_greater_than_zero(self, living_area: str | None):
+    def living_area_is_greater_than_zero(cls, living_area: str | None):
         if living_area is not None:
             assert float(living_area) > 0, "minimumPrice is lesser then 0"
         return living_area
 
     @validator("includeNewConstructions")
-    def is_boolean(self, include: str | None):
+    def is_boolean(cls, include: str | None):
         if include is not None:
             assert include in ["true", "false"], "includeNewConstructions is not a boolean"
         return include
 
     @validator("bedrooms")
-    def must_have_at_least_one_bedroom(self, bedroom: str | None):
+    def must_have_at_least_one_bedroom(cls, bedroom: str | None):
         if bedroom is not None:
             assert int(bedroom) > 1, "must have at least one bedroom"
         return bedroom
 
     @validator("rooms")
-    def must_have_at_least_one_room(self, room: str | None):
+    def must_have_at_least_one_room(cls, room: str | None):
         if room is not None:
             assert int(room) > 1, "must have at least one room"
         return room
 
     @validator("zipCodes")
-    def zipcodes_validator(self, zipcodes: str):
+    def zipcodes_validator(cls, zipcodes: str):
         separator: str = ","
 
         assert zipcodes != "", "must have at least one zipcode" 
@@ -65,6 +65,7 @@ class SelogerSearchQuery(BaseModel):
         if separator in zipcodes:
             for code in zipcodes.split(separator):
                 assert code.isdigit(), f"{code} are not digits"
-        assert zipcodes.isdigit(), f"{zipcodes} are not digits"
+        else:
+            assert zipcodes.isdigit(), f"{zipcodes} are not digits"
 
         return zipcodes

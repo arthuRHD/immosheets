@@ -7,6 +7,6 @@ class Settings(BaseSettings):
     google_sheets_range_name: str = 'A1:J'
     seloger_host: str = 'seloger.p.rapidapi.com'
     leboncoin_host: str = 'leboncoin1.p.rapidapi.com'
-    page_size: str = "700"
+    page_size: str = "50"
     
 settings = Settings()

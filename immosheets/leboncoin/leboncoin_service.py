@@ -1,8 +1,8 @@
-from .target import Target
-from .real_estate import RealEstate
+from ..target import Target
+from ..real_estate import RealEstate
 from .leboncoin_search_query import LeboncoinSearchQuery
-from .real_estate_service import RealEstateService
-from .settings import settings
+from ..real_estate_service import RealEstateService
+from ..settings import settings
 import requests
 
 class LeboncoinService(RealEstateService):
@@ -12,6 +12,7 @@ class LeboncoinService(RealEstateService):
             "X-RapidAPI-Key": api_key,
             "X-RapidAPI-Host": settings.leboncoin_host
         }
+        raise DeprecationWarning(message="leboncoin is now using datadome which bans bots.")
 
     def search(self, query: LeboncoinSearchQuery) -> list[RealEstate]:
         response = requests.post(

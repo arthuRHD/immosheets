@@ -1,4 +1,6 @@
 from pydantic import BaseModel
+from ..location import Location
+from ..range import Range
 
 class LeboncoinCategory(BaseModel):
     id: int
@@ -13,26 +15,8 @@ class LeboncoinKeywords(BaseModel):
     text: str | None
     parrot_used: int | None
 
-class Area(BaseModel):
-    lat: float
-    lng: float
-    default_radius: int = 5000
-    radius: int
-
-class Location(BaseModel):
-    locationType: str
-    label: str
-    city: str
-    department_id: str
-    region_id: str
-    area: Area
-
 class LeboncoinLocations(BaseModel):
     locations: list[Location] = []
-
-class Range(BaseModel):
-    min: int | None
-    max: int | None
 
 class LeboncoinRanges(BaseModel):
     land_plot_surface: Range | None
