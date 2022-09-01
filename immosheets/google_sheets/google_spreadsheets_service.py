@@ -66,7 +66,7 @@ class GoogleSpreadsheetsService(ReportingService):
                 body={'values': to_insert}
             ).execute()
 
-            self.logger.info(f"{result.get('updates').get('updatedCells')} cells appended to {self.sheet_id}.")
+sssssssssssssssssss            self.logger.info(f"{result.get('updates').get('updatedCells')} cells appended to {self.sheet_id}.")
             
         except HttpError as err:
             self.logger.error(err)

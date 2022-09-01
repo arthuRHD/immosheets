@@ -50,7 +50,7 @@ query = SelogerSearchQuery(
 google_sheets.use("my_sheet_id").clear()
 
 for result in seloger.search(query):
-    google_sheets.insert(result)
+    google_sheets.insert(result
 ```
 
 ### Do your own integration
