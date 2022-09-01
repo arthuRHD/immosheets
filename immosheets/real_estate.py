@@ -38,6 +38,20 @@ class RealEstate(BaseModel):
                     pro_tel=raw['professional']['phoneNumber']
                 ) for raw in response.json()['items'] 
                 ]
+            case Target.ORPI:
+                [ 
+                    RealEstate(
+                    price=raw['price'], 
+                    bedrooms=raw['bedrooms'], 
+                    rooms=raw['nbRooms'], 
+                    space=raw['surface'],
+                    city=raw['city']['name'], 
+                    link=f"https://www.orpi.com/annonce-{'location' if raw['transaction'] == 'rent' else 'aa'}-{raw['slug']}", 
+                    pro_email=raw['professional']['email'], 
+                    pro_name=raw['professional']['name'], 
+                    pro_tel=raw['professional']['phoneNumber']
+                ) for raw in response.json()['items'] if not raw['sold']
+                ]
             case Target.LEBONCOIN:
                 raise NotImplementedError
             case _:
