@@ -42,17 +42,13 @@ for result in seloger.search(query):
 ```
 ## Genereting credentials
 
-### Google sheets
-
-To learn how to create credentials, go to [Create credentials](https://developers.google.com/workspace/guides/create-credentials).
-
-Once you create the credentials, make sure the downloaded JSON file is saved as credentials.json. Then move the file to your working directory and fill the path when instanciating the service.
-
-### SeLoger
-
-An account on *RapidAPI* is needed to retrieve an API key.
-
-[https://rapidapi.com/apidojo/api/seloger/](https://rapidapi.com/apidojo/api/seloger/)
+| **Third party** | **Instructions**                                                                                                                                                                                                                                                                                                                     |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [<img src="https://kstatic.googleusercontent.com/files/adf55cdf4c7f8fb38efbf8df6c2792660fbeff2d05be05f2ec8e9c265a179b51c64b9679d8aee00e09cad19ce419d90a2d999b82cea4200abbe78c73e6bfaacf" width=100>](https://www.google.fr/intl/fr/sheets/about/)    | To learn how to create credentials, go to [Create credentials](https://developers.google.com/workspace/guides/create-credentials).  Once you create the credentials, make sure the downloaded JSON file is saved as credentials.json. Then move the file to your working directory and fill the path when instanciating the service. |
+| [<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/bf/64/69/bf646951-e676-9162-1300-4e9a3beb1a8f/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/256x256bb.jpg" width=100>](https://www.seloger.com/)        | Generate your API key [here](https://rapidapi.com/apidojo/api/seloger/). An account on RapidAPI is needed to retrieve an API key. |
+| [<img src="https://static.orpi.com/images/orpibackend/default/5c6e83b340014_Orpi_picto_Agences%20ORPI_ROUGE.png" width=100>](https://www.orpi.com/) | Nothing to do. |
+|  [<img src="https://www.erafrance.com/assets/imgs/era-logo-national.svg" width=100>](https://www.erafrance.com) | Nothing to do. |
+| [<img src="https://www.ouestfrance-immo.com/photo-laforet-guingamp/client/1498/laforet-guingamp-1498logo.jpg" width=100>](https://www.laforet.com/) | Nothing to do. |
 
 ### Do your own integration
 
