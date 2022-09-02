@@ -32,7 +32,7 @@ pip install immosheets
 
 ```py
 from immosheets import (SelogerService, SelogerSearchQuery, SelogerRealEstateFilter, 
-SelogerRealEstateType, SelogerTransactionType, RealEstate, GoogleSpreadsheetsService)
+SelogerRealEstateType, SelogerTransactionType, GoogleSpreadsheetsService)
 
 
 seloger = SelogerService(api_key='my_seloger_api_key')
@@ -50,8 +50,10 @@ query = SelogerSearchQuery(
 google_sheets.use("my_sheet_id").clear()
 
 for result in seloger.search(query):
-    google_sheets.insert(result
+    google_sheets.insert(result)
 ```
+
+Check out examples for more.
 
 ### Do your own integration
 

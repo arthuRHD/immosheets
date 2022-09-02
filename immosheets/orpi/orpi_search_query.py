@@ -1,4 +1,6 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+
+from immosheets.orpi.orpi_transaction_type import OrpiTransactionType
 
 class OrpiRealEstateType:
     HOUSE: str = "maison"
@@ -10,17 +12,34 @@ class OrpiRealEstateFilter:
 class OrpiLayoutType:
     MIXTE: str = "mixte"
     
-class OrpiLocation:
+class OrpiLocation(BaseModel):
     label: str
     value: str
-
 class OrpiSearchQuery(BaseModel):
-    realEstateType: list[OrpiRealEstateType]
+    transactionType: str = OrpiTransactionType.RENT
+    realEstateTypes: list[str]
     locations: list[OrpiLocation]
-    sort: OrpiRealEstateFilter = OrpiRealEstateFilter.NEWEST
-    layoutType: OrpiLayoutType = OrpiLayoutType.MIXTE
+    sort: str | None = OrpiRealEstateFilter.NEWEST
+    layoutType: str | None = OrpiLayoutType.MIXTE
     maxPrice: int | None
     minPrice: int | None
     maxSurface: int | None
     minSurface: int | None
     recentlySold: bool = False
+    
+    def parse_real_estate_types(self) -> str:
+        url_path: str = ""
+        for real_estate_type in self.realEstateTypes:
+            url_path += f"realEstateTypes[]={real_estate_type}&"
+            
+        return url_path
+    
+    def parse_locations(self) -> str:
+        url_path: str = ""
+        for i, location in enumerate(self.locations):
+            url_path += f"locations[{i}][label]={location.label}&locations[{i}][value]={location.value}&"
+            
+        return url_path
+    
+    def parse_transaction_type(self) -> str:
+        return f"/{self.transactionType}?"
