@@ -2,25 +2,9 @@
 
 Tired of searching with your mouse ? Let's automate the process.
 
-This is meant to be used as a package for your bot.
-
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ba1afb9f8ffe402ca6a31a30ba63b628)](https://www.codacy.com/gh/arthuRHD/immosheets/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=arthuRHD/immosheets&amp;utm_campaign=Badge_Grade)
 [![PyPI version](https://badge.fury.io/py/immosheets.svg)](https://badge.fury.io/py/immosheets)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/immosheets)
-
-## Genereting credentials
-
-### Google sheets
-
-To learn how to create credentials, go to [Create credentials](https://developers.google.com/workspace/guides/create-credentials).
-
-Once you create the credentials, make sure the downloaded JSON file is saved as credentials.json. Then move the file to your working directory and fill the path when instanciating the service.
-
-### SeLoger
-
-An account on *RapidAPI* is needed to retrieve an API key.
-
-[https://rapidapi.com/apidojo/api/seloger/](https://rapidapi.com/apidojo/api/seloger/)
 
 ## Usage
 
@@ -31,6 +15,8 @@ pip install immosheets
 ```
 
 ### Write your script
+
+This is meant to be used as a package for your bot.
 
 ```py
 from immosheets import (SelogerService, SelogerSearchQuery, SelogerRealEstateFilter, 
@@ -54,6 +40,19 @@ google_sheets.use("my_sheet_id").clear()
 for result in seloger.search(query):
     google_sheets.insert(result
 ```
+## Genereting credentials
+
+### Google sheets
+
+To learn how to create credentials, go to [Create credentials](https://developers.google.com/workspace/guides/create-credentials).
+
+Once you create the credentials, make sure the downloaded JSON file is saved as credentials.json. Then move the file to your working directory and fill the path when instanciating the service.
+
+### SeLoger
+
+An account on *RapidAPI* is needed to retrieve an API key.
+
+[https://rapidapi.com/apidojo/api/seloger/](https://rapidapi.com/apidojo/api/seloger/)
 
 ### Do your own integration
 
