@@ -1,14 +1,12 @@
-# immosheets
-
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ba1afb9f8ffe402ca6a31a30ba63b628)](https://www.codacy.com/gh/arthuRHD/immosheets/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=arthuRHD/immosheets&amp;utm_campaign=Badge_Grade)
-[![PyPI version](https://badge.fury.io/py/immosheets.svg)](https://badge.fury.io/py/immosheets)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/immosheets)
+<img src="https://github.com/arthuRHD/immosheets/blob/6222c6bb6e1f80fb8de2a60368aeb918207c4adb/SVGLogo.svg"/>
 
 Tired of searching with your mouse ? Let's automate the process.
 
 This is meant to be used as a package for your bot.
 
-I'm currently only supporting seloger.com and google sheets as third parties. I'm working on Leboncoin integration. For other integrations, feel free to write an issue.
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ba1afb9f8ffe402ca6a31a30ba63b628)](https://www.codacy.com/gh/arthuRHD/immosheets/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=arthuRHD/immosheets&amp;utm_campaign=Badge_Grade)
+[![PyPI version](https://badge.fury.io/py/immosheets.svg)](https://badge.fury.io/py/immosheets)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/immosheets)
 
 ## Genereting credentials
 
@@ -58,6 +56,8 @@ for result in seloger.search(query):
 ```
 
 ### Do your own integration
+
+I'm currently only supporting seloger.com and google sheets as third parties. I'm working on Leboncoin integration. For other integrations, feel free to write an issue.
 
 You can actually write your own integration based on defaults abstract classes located at the root of the package.
 
