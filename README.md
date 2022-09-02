@@ -1,5 +1,7 @@
 # immosheets
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cd1af0a1cac34ba9bbdede00f2f44f66)](https://app.codacy.com/gh/arthuRHD/immosheets?utm_source=github.com&utm_medium=referral&utm_content=arthuRHD/immosheets&utm_campaign=Badge_Grade_Settings)
+
 Tired of searching with your mouse ? Let's automate the process.
 
 This is meant to be used as a package for your bot.
