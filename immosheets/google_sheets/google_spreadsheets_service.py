@@ -53,10 +53,26 @@ class GoogleSpreadsheetsService(ReportingService):
         self.logger.info(f"{self.sheet_id} cells cleared.")
         return self
     
+    def add_headers(self):
+        try:
+            sheet = self.service.spreadsheets()
+            sheet.values().append(
+                    spreadsheetId=self.sheet_id,
+                    range=self.range, 
+                    valueInputOption="USER_ENTERED", 
+                    body={'values': [['price', 'bedrooms', 'rooms', 'city', 'm²', 'link', 'contact', 'email', 'tel', 'provider']]}
+                ).execute()
+            
+            self.logger.info(f"headers added on {self.sheet_id}.")
+            return self
+            
+        except HttpError as err:
+            self.logger.error(err)
+    
     def insert(self, real_estates: list[RealEstate]):
         try:
             sheet = self.service.spreadsheets()
-            to_insert = [['price', 'bedrooms', 'rooms', 'city', 'm²', 'link', 'contact', 'email', 'tel']]
+            to_insert = []
             for real_estate in real_estates:
                 to_insert.append(real_estate.to_cell())
             result = sheet.values().append(
