@@ -20,7 +20,7 @@ This is meant to be used as a package for your bot.
 
 ```py
 from immosheets import (SelogerService, SelogerSearchQuery, SelogerRealEstateFilter, 
-SelogerRealEstateType, SelogerTransactionType, RealEstate, GoogleSpreadsheetsService)
+SelogerRealEstateType, SelogerTransactionType, GoogleSpreadsheetsService)
 
 
 seloger = SelogerService(api_key='my_seloger_api_key')
@@ -38,7 +38,7 @@ query = SelogerSearchQuery(
 google_sheets.use("my_sheet_id").clear()
 
 for result in seloger.search(query):
-    google_sheets.insert(result
+    google_sheets.insert(result)
 ```
 ## Genereting credentials
 
@@ -49,6 +49,8 @@ for result in seloger.search(query):
 | [<img src="https://static.orpi.com/images/orpibackend/default/5c6e83b340014_Orpi_picto_Agences%20ORPI_ROUGE.png" width=100>](https://www.orpi.com/) | Nothing to do. |
 |  [<img src="https://www.erafrance.com/assets/imgs/era-logo-national.svg" width=100>](https://www.erafrance.com) | Nothing to do. |
 | [<img src="https://www.ouestfrance-immo.com/photo-laforet-guingamp/client/1498/laforet-guingamp-1498logo.jpg" width=100>](https://www.laforet.com/) | Nothing to do. |
+
+Check out examples for more.
 
 ### Do your own integration
 
