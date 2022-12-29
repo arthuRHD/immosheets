@@ -4,7 +4,7 @@ Tired of searching with your mouse ? Let's automate the process.
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ba1afb9f8ffe402ca6a31a30ba63b628)](https://www.codacy.com/gh/arthuRHD/immosheets/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=arthuRHD/immosheets&amp;utm_campaign=Badge_Grade)
 [![PyPI version](https://badge.fury.io/py/immosheets.svg)](https://badge.fury.io/py/immosheets)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/immosheets)
+[![Downloads](https://static.pepy.tech/badge/immosheets)](https://pepy.tech/project/immosheets)
 
 ## Usage
 
