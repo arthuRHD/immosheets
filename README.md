@@ -1,10 +1,28 @@
-<img src="https://github.com/arthuRHD/immosheets/blob/6222c6bb6e1f80fb8de2a60368aeb918207c4adb/SVGLogo.svg"/>
+<div id="header" align="center">
+  <img src="https://github.com/arthuRHD/immosheets/blob/6222c6bb6e1f80fb8de2a60368aeb918207c4adb/SVGLogo.svg"/><br><br>
+    <p><strong><em>Tired of searching with your mouse ? Let's automate the process.</em></strong></p>
+    <a href="https://app.codacy.com/project/badge/Grade/ba1afb9f8ffe402ca6a31a30ba63b628">
+      <img src="https://app.codacy.com/project/badge/Grade/ba1afb9f8ffe402ca6a31a30ba63b628" alt="Codacy Badge">
+   </a>
+   <a href="https://badge.fury.io/py/immosheets">
+      <img src="https://badge.fury.io/py/immosheets.svg" alt="PyPI version">
+  </a>
+  <a href="https://pepy.tech/project/immosheets">
+     <img src="https://static.pepy.tech/badge/immosheets" alt="Downloads">
+  </a>
+</div>
+<br>
 
-Tired of searching with your mouse ? Let's automate the process.
+## Description :
++ Introducing "**immosheets**", a tool that streamlines your search process by automating it. 
++ No more tedious mouse clicking and scrolling through search results. With **immosheets**, you can quickly and easily find what you're looking for with just a few simple commands. 
++ Whether you're a developer looking for code snippets or a researcher scouring the web for information, **immosheets** can help you save time and increase your productivity. 
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ba1afb9f8ffe402ca6a31a30ba63b628)](https://www.codacy.com/gh/arthuRHD/immosheets/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=arthuRHD/immosheets&amp;utm_campaign=Badge_Grade)
-[![PyPI version](https://badge.fury.io/py/immosheets.svg)](https://badge.fury.io/py/immosheets)
-[![Downloads](https://static.pepy.tech/badge/immosheets)](https://pepy.tech/project/immosheets)
+<div align="center">
+<h3>Try immosheets out today and see the difference for yourself!<h3>
+</div>
+
+
 
 ## Usage
 
@@ -52,15 +70,23 @@ for result in seloger.search(query):
 
 Check out examples for more.
 
-### Do your own integration
+## Integration
 
-I'm currently only supporting seloger.com and google sheets as third parties. I'm working on Leboncoin integration. For other integrations, feel free to write an issue.
++ At this time, I am able to integrate with seloger.com and Google Sheets.
++ I am currently in the process of implementing support for Leboncoin.
++ If you would like me to integrate with any other third-party platforms, please submit a request in the form of an issue.
++ Additional integrations beyond seloger.com and Google Sheets are being considered and are open for request through the creation of an issue.
++ Your suggestions will be taken into consideration and evaluated for feasibility and compatibility with my current system.
++ We appreciate your feedback and suggestions as it helps us to improve and expand my capabilities to better serve you!
 
-You can actually write your own integration based on defaults abstract classes located at the root of the package.
+### You can actually write your own integration based on defaults abstract classes located at the root of the package :
 
 - 'RealEstateService' for data acquisition
 - 'ReportingService' to display and manage data
-
+    
+    
+### Integration Ideas 
+    
 Here's few integrations ideas:
 
 - Excel
