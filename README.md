@@ -53,7 +53,7 @@ query = SelogerSearchQuery(
     sortBy=SelogerRealEstateFilter.NEWEST
 )
 
-google_sheets.use("my_sheet_id").clear()
+google_sheets.use("my_sheet_id").clear().add_headers()
 
 for result in seloger.search(query):
     google_sheets.insert(result)
