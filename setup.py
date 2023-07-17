@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="immosheets",  # Replace with your own username
-    version="1.0.14",
+    name="immosheets",
+    version="1.1.0",
     author="Arthur RICHARD",
     author_email="arthur.richard@protonmail.com",
     description="Tired of searching with your mouse ? Let's automate the process.",
@@ -14,13 +14,13 @@ setup(
     url="https://github.com/arthuRHD/immosheets",
     packages=find_packages(),
     install_requires=[
-        "pydantic==1.9.1",
-        "requests==2.28.1",
-        "google-api-core==2.8.2",
-        "google-api-python-client==2.52.0",
-        "google-auth==2.9.0",
+        "pydantic==2.0.3",
+        "requests==2.31.0",
+        "google-api-core==2.11.1",
+        "google-api-python-client==2.93.0",
+        "google-auth==2.22.0",
         "google-auth-httplib2==0.1.0",
-        "google-auth-oauthlib==0.5.2"
+        "google-auth-oauthlib==1.0.0"
     ],
     python_requires='>=3.10',
     classifiers=[
