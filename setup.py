@@ -15,6 +15,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "pydantic==2.0.3",
+        "pydantic-settings==2.0.2",
         "requests==2.31.0",
         "google-api-core==2.11.1",
         "google-api-python-client==2.93.0",
