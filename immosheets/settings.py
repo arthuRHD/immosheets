@@ -1,4 +1,4 @@
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     seloger_url: str = 'https://seloger.p.rapidapi.com/properties/list'
@@ -9,5 +9,5 @@ class Settings(BaseSettings):
     seloger_host: str = 'seloger.p.rapidapi.com'
     leboncoin_host: str = 'leboncoin1.p.rapidapi.com'
     page_size: str = "50"
-    
+
 settings = Settings()
