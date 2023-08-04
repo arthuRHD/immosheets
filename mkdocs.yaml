@@ -1,0 +1,22 @@
+site_name: immosheets
+theme:
+  language: fr
+  name: material
+  features:
+    - content.code.copy
+    - content.code.annotate
+repo_name: immosheets
+repo_url: https://github.com/arthuRHD/immosheets
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+copyright: Arthur RICHARD @2023

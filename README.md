@@ -70,6 +70,22 @@ for result in seloger.search(query):
 
 Check out examples for more.
 
+## For contributors
+
+To install development dependencies
+
+```sh
+pip install -r requirements.txt
+```
+
+To install the package locally with your new code inside
+
+```sh
+pip install -e .
+```
+
+There are no unit tests or documentation currently, we're working on that.
+
 ## Integration
 
 + At this time, I am able to integrate with seloger.com and Google Sheets.
