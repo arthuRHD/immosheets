@@ -4,14 +4,14 @@ from .target import Target
 
 class RealEstate(BaseModel):
     price: int
-    bedrooms: int | None
+    bedrooms: int | None = None
     rooms: int
     city: str
     space: float
-    link: str | None
-    pro_name: str | None
-    pro_email: str | None
-    pro_tel: str | None
+    link: str | None = None
+    pro_name: str | None = None
+    pro_email: str | None = None
+    pro_tel: str | None = None
     provider: str
     
     def to_cell(self) -> list:

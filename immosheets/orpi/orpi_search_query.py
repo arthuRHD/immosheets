@@ -27,10 +27,10 @@ class OrpiSearchQuery(BaseModel):
     locations: list[OrpiLocation]
     sort: str | None = OrpiRealEstateFilter.NEWEST
     layoutType: str | None = OrpiLayoutType.MIXTE
-    maxPrice: int | None
-    minPrice: int | None
-    maxSurface: int | None
-    minSurface: int | None
+    maxPrice: int | None = None
+    minPrice: int | None = None
+    maxSurface: int | None = None
+    minSurface: int | None = None
     recentlySold: bool = False
 
     def parse_real_estate_types(self) -> str:
