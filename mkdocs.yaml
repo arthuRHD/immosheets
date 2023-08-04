@@ -2,6 +2,8 @@ site_name: immosheets
 theme:
   language: fr
   name: material
+  palette:
+    accent: green
   features:
     - content.code.copy
     - content.code.annotate
