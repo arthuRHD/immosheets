@@ -1,5 +1,5 @@
 <div id="header" align="center">
-  <img src="https://github.com/arthuRHD/immosheets/blob/6222c6bb6e1f80fb8de2a60368aeb918207c4adb/SVGLogo.svg"/><br><br>
+  <img src="SVGLogo.svg"/><br><br>
     <p><strong><em>Tired of searching with your mouse ? Let's automate the process.</em></strong></p>
     <a href="https://app.codacy.com/project/badge/Grade/ba1afb9f8ffe402ca6a31a30ba63b628">
       <img src="https://app.codacy.com/project/badge/Grade/ba1afb9f8ffe402ca6a31a30ba63b628" alt="Codacy Badge">
@@ -9,6 +9,12 @@
   </a>
   <a href="https://pepy.tech/project/immosheets">
      <img src="https://static.pepy.tech/badge/immosheets" alt="Downloads">
+  </a>
+  <a href="https://github.com/arthuRHD/immosheets/actions/workflows/python-publish.yml">
+    <img src="https://github.com/arthuRHD/immosheets/actions/workflows/python-publish.yml/badge.svg" alt="release">
+  </a>
+  <a href="https://github.com/arthuRHD/immosheets/actions/workflows/documentation-publish.yml">
+    <img src="https://github.com/arthuRHD/immosheets/actions/workflows/documentation-publish.yml/badge.svg" alt="documentation">
   </a>
 </div>
 <br>
