@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="immosheets",
-    version="1.1.0",
+    version="1.1.1",
     author="Arthur RICHARD",
     author_email="arthur.richard@protonmail.com",
     description="Tired of searching with your mouse ? Let's automate the process.",
