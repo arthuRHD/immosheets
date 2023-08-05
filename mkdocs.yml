@@ -1,8 +1,17 @@
-site_name: immosheets
+site_name: Documentation
+docs_dir: docs
 theme:
-  language: fr
+  locale: en
+  logo: whitelogo.png
+  favicon: whitelogo.png
+  language: en
   name: material
+  icon:
+    repo: fontawesome/brands/github
+  font: 
+    text: Roboto Condensed
   palette:
+    primary: green
     accent: green
   features:
     - content.code.copy
