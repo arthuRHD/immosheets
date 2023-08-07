@@ -16,6 +16,9 @@
   <a href="https://github.com/arthuRHD/immosheets/actions/workflows/documentation-publish.yml">
     <img src="https://github.com/arthuRHD/immosheets/actions/workflows/documentation-publish.yml/badge.svg" alt="documentation">
   </a>
+  <a href="https://github.com/arthuRHD/immosheets/actions/workflows/codacy.yml">
+    <img src="https://github.com/arthuRHD/immosheets/actions/workflows/codacy.yml/badge.svg" alt="Codacy Security Scan">
+  </a>
 </div>
 <br>
 
