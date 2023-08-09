@@ -9,7 +9,7 @@ class PostalCode(BaseModel):
     def postal_code_is_correct(cls, value: str | None):
         separator: str = ","
 
-        assert value != "" && value is not None, "must have at least one zipcode"
+        assert value is not None and value != "", "must have at least one zipcode"
 
         if separator in value:
             for code in value.split(separator):
