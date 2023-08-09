@@ -1,8 +1,8 @@
 import logging
 
-from immosheets import (SelogerService, OrpiService, OrpiSearchQuery, 
-                        OrpiLocation, OrpiRealEstateType, OrpiRealEstateFilter, 
-                        OrpiLayoutType, SelogerSearchQuery, SelogerRealEstateFilter, 
+from immosheets import (SelogerService, OrpiService, OrpiSearchQuery,
+                        OrpiLocation, OrpiRealEstateType, OrpiRealEstateFilter,
+                        OrpiLayoutType, SelogerSearchQuery, SelogerRealEstateFilter,
                         SelogerRealEstateType, SelogerTransactionType, GoogleSpreadsheetsService)
 
 
@@ -13,19 +13,20 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     seloger = SelogerService(api_key=API_KEY)
     orpi = OrpiService()
-    google_sheets = GoogleSpreadsheetsService(credentials_file_path='./credentials.json')
+    google_sheets = GoogleSpreadsheetsService(
+        credentials_file_path='./credentials.json')
 
     seloger_query = SelogerSearchQuery(
         maximumPrice="800",
-        zipCodes="76300,76800,76000",
+        zip_codes="76300,76800,76000",
         includeNewConstructions="false",
         transactionType=SelogerTransactionType.RENT,
         realtyTypes=SelogerRealEstateType.APPARTMENT,
         sortBy=SelogerRealEstateFilter.NEWEST
     )
-    
+
     rouen = OrpiLocation(label="Rouen+(76000)", value="rouen")
-    
+
     orpi_query = OrpiSearchQuery(
         locations=[rouen],
         layoutType=OrpiLayoutType.MIXTE,
@@ -40,5 +41,5 @@ if __name__ == "__main__":
 
     for result in seloger.search(seloger_query):
         google_sheets.insert(result)
-        
+
     google_sheets.insert(orpi.search(orpi_query))

@@ -9,17 +9,17 @@ class PostalCode(BaseModel):
     def postal_code_is_correct(cls, value: str | None):
         separator: str = ","
 
-        if value is None: 
+        if value is None:
             raise ValueError("zipcode is not set")
-        if value == "": 
+        if value == "":
             raise ValueError(f"{value} must have at least one zipcode")
 
         if separator in value:
             for code in value.split(separator):
-                if not code.isdigit(): 
+                if not code.isdigit():
                     raise ValueError(f"{code} are not digits")
         else:
-            if not value.isdigit(): 
+            if not value.isdigit():
                 raise ValueError(f"{code} are not digits")
 
         return value
@@ -58,14 +58,3 @@ class EraSearchQuery(BaseModel):
     sort_by: str = "desc"
     reused: bool = Field(alias="shouldReuse", default=True)
     format: str = Field(alias="_format", default="json")
-
-
-if __name__ == "__main__":
-    query: EraSearchQuery = EraSearchQuery(
-        real_estate_type=[EraRealEstateType.APPARTMENT],
-        transaction_type=EraTransactionType.RENT,
-        max_price=500,
-        postal_code=PostalCode(value="76000")
-    )
-
-    print(query.model_dump_json(by_alias=True))

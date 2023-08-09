@@ -70,10 +70,9 @@ class GoogleSpreadsheetsService(ReportingService):
             ).execute()
 
             self.logger.info("headers added on %s.", self.sheet_id)
-            return self
-
         except HttpError as err:
             self.logger.error(err)
+        return self
 
     def insert(self, real_estates: list[RealEstate]):
         try:
