@@ -3,7 +3,7 @@ from ..settings import settings
 
 
 class SelogerSearchQuery(BaseModel):
-    zipCodes: str
+    zip_codes: str
     maximumPrice: str | None = None
     minimumPrice: str | None = None
     maximumFloor: str | None = None
@@ -45,7 +45,8 @@ class SelogerSearchQuery(BaseModel):
     @classmethod
     def is_boolean(cls, include: str | None):
         if include is not None:
-            assert include in ["true", "false"], "includeNewConstructions is not a boolean"
+            assert include in [
+                "true", "false"], "includeNewConstructions is not a boolean"
         return include
 
     @field_validator("bedrooms")
@@ -62,17 +63,17 @@ class SelogerSearchQuery(BaseModel):
             assert int(room) > 1, "must have at least one room"
         return room
 
-    @field_validator("zipCodes")
+    @field_validator('zip_codes')
     @classmethod
-    def zipcodes_validator(cls, zipcodes: str):
+    def postal_code_is_correct(cls, zip_codes: str | None):
         separator: str = ","
 
-        assert zipcodes != "", "must have at least one zipcode" 
+        assert zip_codes != "", "must have at least one zipcode"
 
-        if separator in zipcodes:
-            for code in zipcodes.split(separator):
+        if separator in zip_codes:
+            for code in zip_codes.split(separator):
                 assert code.isdigit(), f"{code} are not digits"
         else:
-            assert zipcodes.isdigit(), f"{zipcodes} are not digits"
+            assert zip_codes.isdigit(), f"{zip_codes} are not digits"
 
-        return zipcodes
+        return zip_codes
