@@ -40,7 +40,7 @@ class SelogerSearchQuery(BaseModel):
     @classmethod
     def living_area_is_greater_than_zero(cls, living_area: str | None):
         if living_area is not None:
-            if float(floor) <= 0:
+            if float(living_area) <= 0:
                 raise ValueError("living area is lesser then or equals 0")
         return living_area
 
@@ -56,14 +56,16 @@ class SelogerSearchQuery(BaseModel):
     @classmethod
     def must_have_at_least_one_bedroom(cls, bedroom: str | None):
         if bedroom is not None:
-            if int(bedroom) < 1: raise ValueError("must have at least one bedroom")
+            if int(bedroom) < 1:
+                raise ValueError("must have at least one bedroom")
         return bedroom
 
     @field_validator("rooms")
     @classmethod
     def must_have_at_least_one_room(cls, room: str | None):
         if room is not None:
-            if int(room) < 1: raise ValueError("must have at least one room")
+            if int(room) < 1:
+                raise ValueError("must have at least one room")
         return room
 
     @field_validator('zip_codes')
@@ -71,12 +73,15 @@ class SelogerSearchQuery(BaseModel):
     def postal_code_is_correct(cls, zip_codes: str | None):
         separator: str = ","
 
-        if zip_codes == "": raise ValueError("must have at least one zipcode")
+        if zip_codes == "":
+            raise ValueError("must have at least one zipcode")
 
         if separator in zip_codes:
             for code in zip_codes.split(separator):
-                if not code.isdigit(): raise ValueError(f"{code} are not digits")
+                if not code.isdigit():
+                    raise ValueError(f"{code} are not digits")
         else:
-            if not zip_codes.isdigit(): raise ValueError(f"{zip_codes} are not digits")
+            if not zip_codes.isdigit():
+                raise ValueError(f"{zip_codes} are not digits")
 
         return zip_codes
