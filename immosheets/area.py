@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class Area(BaseModel):
     lat: float
     lng: float

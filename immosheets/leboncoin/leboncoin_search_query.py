@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from .leboncoin_query_filter import LeboncoinQueryFilter
 
+
 class LeboncoinSearchQuery(BaseModel):
     sort_order: str = "desc"
     limit: int = 0

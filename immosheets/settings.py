@@ -1,13 +1,17 @@
 from pydantic_settings import BaseSettings
 
+
 class Settings(BaseSettings):
     seloger_url: str = 'https://seloger.p.rapidapi.com/properties/list'
     leboncoin_url: str = 'https://leboncoin1.p.rapidapi.com/v2/leboncoin/search_api'
+    era_url: str = 'https://api.erafrance.com/api'
     orpi_url: str = 'https://www.orpi.com/recherche/ajax'
     google_api_scope: str = 'https://www.googleapis.com/auth/spreadsheets'
     google_sheets_range_name: str = 'A1:K'
     seloger_host: str = 'seloger.p.rapidapi.com'
     leboncoin_host: str = 'leboncoin1.p.rapidapi.com'
     page_size: str = "50"
+    request_timeout_in_secs: int = 30
+
 
 settings = Settings()

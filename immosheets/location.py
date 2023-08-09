@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from .area import Area
 
+
 class Location(BaseModel):
     locationType: str
     label: str

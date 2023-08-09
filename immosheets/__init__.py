@@ -7,5 +7,6 @@ from .google_sheets.google_spreadsheets_service import GoogleSpreadsheetsService
 from .seloger.seloger_transaction_type import SelogerTransactionType
 from .seloger.seloger_search_query import SelogerSearchQuery
 from .seloger.seloger_service import SelogerService
-from .orpi.orpi_search_query import (OrpiSearchQuery, OrpiRealEstateType, OrpiLayoutType, OrpiLocation, OrpiRealEstateFilter)
+from .orpi.orpi_search_query import (
+    OrpiSearchQuery, OrpiRealEstateType, OrpiLayoutType, OrpiLocation, OrpiRealEstateFilter)
 from .orpi.orpi_service import OrpiService
