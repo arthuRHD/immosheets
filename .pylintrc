@@ -4,4 +4,5 @@ disable=
     C0114, # missing-module-docstring
     C0115, # missing-class-docstring
     C0116, # missing-function-docstring
-    E5110 # django-not-configured
+    E5110, # django-not-configured
+    R0903 # pydantic-too-few-public-methods
