@@ -1,7 +1,9 @@
 
 # Contributing to immosheets
 
-Thank you for considering contributing to immosheets! Every contribution, whether a typo fix or a new feature, is valuable for the project. This document provides guidelines and steps for contributing.
+Thank you for considering contributing to immosheets! Every contribution,
+whether a typo fix or a new feature, is valuable for the project.
+This document provides guidelines and steps for contributing.
 
 ## Code of Conduct
 
@@ -11,13 +13,17 @@ By participating in this project, you are expected to uphold our [Code of Conduc
 
 ### Reporting Bugs
 
-1. Ensure the bug was not already reported by searching on GitHub under [Issues](https://github.com/arthuRHD/immosheets/issues).
-2. If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/arthuRHD/immosheets/issues/new). Include a clear title, detailed description, and as much relevant information as possible.
+1. Ensure the bug was not already reported by searching on GitHub
+under [Issues](https://github.com/arthuRHD/immosheets/issues).
+2. If you're unable to find an open issue addressing the problem,
+[open a new one](https://github.com/arthuRHD/immosheets/issues/new).
+Include a clear title, detailed description, and as much relevant information as possible.
 
 ### Suggesting Enhancements
 
 1. First, read the documentation to ensure the feature hasn't been discussed or implemented.
-2. Propose your new feature in an [issue](https://github.com/arthuRHD/immosheets/issues/new). Include design mockups or diagrams if applicable.
+2. Propose your new feature in an [issue](https://github.com/arthuRHD/immosheets/issues/new).
+Include design mockups or diagrams if applicable.
 
 ### Pull Requests
 
@@ -36,7 +42,8 @@ By participating in this project, you are expected to uphold our [Code of Conduc
 
 ### Git Commit Messages
 
-* Start the commit message with an appropriate [gitmoji](https://gitmoji.dev/). For example: `🐛: Fix a bug` or `✨: Add new feature`.
+* Start the commit message with an appropriate [gitmoji](https://gitmoji.dev/).
+For example: `🐛: Fix a bug` or `✨: Add new feature`.
 * Use the present tense ("Add feature" not "Added feature").
 * Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
 * Limit the first line to 72 characters or less.
