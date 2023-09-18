@@ -20,7 +20,7 @@ setup(
         "requests==2.31.0",
         "google-api-core==2.11.1",
         "google-api-python-client==2.97.0",
-        "google-auth==2.22.0",
+        "google-auth==2.23.0",
         "google-auth-httplib2==0.1.0",
         "google-auth-oauthlib==1.0.0",
         "Deprecated==1.2.14"
