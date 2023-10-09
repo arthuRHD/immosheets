@@ -22,7 +22,7 @@ setup(
         "google-api-python-client==2.97.0",
         "google-auth==2.22.0",
         "google-auth-httplib2==0.1.0",
-        "google-auth-oauthlib==1.0.0",
+        "google-auth-oauthlib==1.1.0",
         "Deprecated==1.2.14"
     ],
     python_requires='>=3.10',
