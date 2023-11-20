@@ -16,7 +16,7 @@ setup(
     package_data={'logo': ['SVGLogo.svg']},
     install_requires=[
         "pydantic==2.3.0",
-        "pydantic-settings==2.0.3",
+        "pydantic-settings==2.1.0",
         "requests==2.31.0",
         "google-api-core==2.11.1",
         "google-api-python-client==2.106.0",
