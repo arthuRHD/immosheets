@@ -27,7 +27,6 @@ class SelogerService(RealEstateService):
         )
 
     def search(self, query: SelogerSearchQuery) -> Generator[list[RealEstate], None, None]:
-
         total: int = self.retrieve_page(query).json()['totalCount']
         num_pages: int = total // int(settings.page_size)
         self.logger.info("we found %s pages", num_pages)

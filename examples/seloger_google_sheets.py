@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     query = SelogerSearchQuery(
         maximumPrice="800",
-        zip_codes="76300,76800,76000",
+        zipCodes="76300,76800,76000",
         includeNewConstructions="false",
         transactionType=SelogerTransactionType.RENT,
         realtyTypes=SelogerRealEstateType.APPARTMENT,
