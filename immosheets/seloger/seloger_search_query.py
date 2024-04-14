@@ -3,7 +3,7 @@ from ..settings import settings
 
 
 class SelogerSearchQuery(BaseModel):
-    zip_codes: str
+    zipCodes: str
     maximumPrice: str | None = None
     minimumPrice: str | None = None
     maximumFloor: str | None = None
@@ -68,20 +68,20 @@ class SelogerSearchQuery(BaseModel):
                 raise ValueError("must have at least one room")
         return room
 
-    @field_validator('zip_codes')
+    @field_validator('zipCodes')
     @classmethod
-    def postal_code_is_correct(cls, zip_codes: str | None):
+    def postal_code_is_correct(cls, zipCodes: str | None):
         separator: str = ","
 
-        if zip_codes == "":
+        if zipCodes == "":
             raise ValueError("must have at least one zipcode")
 
-        if separator in zip_codes:
-            for code in zip_codes.split(separator):
+        if separator in zipCodes:
+            for code in zipCodes.split(separator):
                 if not code.isdigit():
                     raise ValueError(f"{code} are not digits")
         else:
-            if not zip_codes.isdigit():
-                raise ValueError(f"{zip_codes} are not digits")
+            if not zipCodes.isdigit():
+                raise ValueError(f"{zipCodes} are not digits")
 
-        return zip_codes
+        return zipCodes
