@@ -67,7 +67,7 @@ google_sheets.use("my_sheet_id").clear().add_headers()
 for result in seloger.search(query):
     google_sheets.insert(result)
 ```
-## Genereting credentials
+## Generating credentials
 
 | **Third party** | **Instructions**                                                                                                                                                                                                                                                                                                                     |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -112,7 +112,7 @@ There are no unit tests or documentation currently, we're working on that.
     
 ### Integration Ideas 
     
-Here's few integrations ideas:
+Here's a few integrations ideas:
 
 - Excel
 - MongoDB
