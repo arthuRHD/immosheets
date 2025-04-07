@@ -18,7 +18,7 @@ setup(
         "pydantic==2.5.1",
         "pydantic-settings==2.1.0",
         "requests==2.31.0",
-        "google-api-core==2.14.0",
+        "google-api-core==2.17.1",
         "google-api-python-client==2.111.0",
         "google-auth==2.23.4",
         "google-auth-httplib2==0.2.0",
