@@ -1,4 +1,5 @@
-from pydantic import BaseModel
+import attr
+from typing import List, Optional, Union
 
 from immosheets.orpi.orpi_transaction_type import OrpiTransactionType
 
@@ -16,28 +17,29 @@ class OrpiLayoutType:
     MIXTE: str = "mixte"
 
 
-class OrpiLocation(BaseModel):
+@attr.s(auto_attribs=True, frozen=True)
+class OrpiLocation:
     label: str
     value: str
 
 
-class OrpiSearchQuery(BaseModel):
-    transactionType: str = OrpiTransactionType.RENT
-    realEstateTypes: list[str]
-    locations: list[OrpiLocation]
-    sort: str | None = OrpiRealEstateFilter.NEWEST
-    layoutType: str | None = OrpiLayoutType.MIXTE
-    maxPrice: int | None = None
-    minPrice: int | None = None
-    maxSurface: int | None = None
-    minSurface: int | None = None
-    recentlySold: bool = False
+@attr.s(auto_attribs=True, frozen=True)
+class OrpiSearchQuery:
+    transactionType: str = attr.field(default=OrpiTransactionType.RENT)
+    realEstateTypes: List[str] = attr.field()
+    locations: List[OrpiLocation] = attr.field()
+    sort: Optional[str] = attr.field(default=OrpiRealEstateFilter.NEWEST)
+    layoutType: Optional[str] = attr.field(default=OrpiLayoutType.MIXTE)
+    maxPrice: Optional[int] = None
+    minPrice: Optional[int] = None
+    maxSurface: Optional[int] = None
+    minSurface: Optional[int] = None
+    recentlySold: bool = attr.field(default=False)
 
     def parse_real_estate_types(self) -> str:
         url_path: str = ""
         for real_estate_type in self.realEstateTypes:
             url_path += f"realEstateTypes[]={real_estate_type}&"
-
         return url_path
 
     def parse_locations(self) -> str:
@@ -45,7 +47,6 @@ class OrpiSearchQuery(BaseModel):
         for i, location in enumerate(self.locations):
             url_path += f"locations[{i}][label]={location.label}&"
             url_path += f"locations[{i}][value]={location.value}&"
-
         return url_path
 
     def parse_transaction_type(self) -> str:

@@ -1,18 +1,19 @@
-from pydantic import BaseModel
+import attr
 from requests import Response
 from .target import Target
 
 
-class RealEstate(BaseModel):
+@attr.s(auto_attribs=True)
+class RealEstate:
     price: int
-    bedrooms: int | None = None
+    bedrooms: Optional[int] = None
     rooms: int
     city: str
     space: float
-    link: str | None = None
-    pro_name: str | None = None
-    pro_email: str | None = None
-    pro_tel: str | None = None
+    link: Optional[str] = None
+    pro_name: Optional[str] = None
+    pro_email: Optional[str] = None
+    pro_tel: Optional[str] = None
     provider: str
 
     def to_cell(self) -> list:

@@ -1,6 +1,7 @@
-from pydantic import BaseModel
+import attr
+from typing import Optional
 
-
-class Range(BaseModel):
-    min: int | None = None
-    max: int | None = None
+@attr.s(auto_attribs=True)
+class Range:
+    min: Optional[int] = None
+    max: Optional[int] = None

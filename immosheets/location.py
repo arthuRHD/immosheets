@@ -1,8 +1,8 @@
-from pydantic import BaseModel
+import attr
 from .area import Area
 
-
-class Location(BaseModel):
+@attr.s(auto_attribs=True)
+class Location:
     locationType: str
     label: str
     city: str

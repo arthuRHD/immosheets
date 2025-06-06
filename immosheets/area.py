@@ -1,7 +1,8 @@
-from pydantic import BaseModel
+import attr
 
 
-class Area(BaseModel):
+@attr.s(auto_attribs=True)
+class Area:
     lat: float
     lng: float
     default_radius: int = 5000

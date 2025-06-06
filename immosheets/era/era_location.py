@@ -1,31 +1,43 @@
-from pydantic import BaseModel, Field, ConfigDict
+import attr
+from typing import List, Optional, Any
+from .utils import create_attrs_instance_from_dict
 
 
-class Town(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
+@attr.s(auto_attribs=True, frozen=True)
+class Town:
     id: int
     type: str
-    name: str = Field(alias="nom")
-    postal_code: str = Field(alias="code_postal")
+    name: str = attr.field(metadata={'alias': 'nom'})
+    postal_code: str = attr.field(metadata={'alias': 'code_postal'})
     slug: str
     code: str
 
 
-class Department(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
+@attr.s(auto_attribs=True, frozen=True)
+class Department:
     id: int
-    name: str = Field(alias="nom")
+    name: str = attr.field(metadata={'alias': 'nom'})
     slug: str
     code: str
 
 
-class EraLocationResponse(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-    departments: list[Department] | None = Field(None, alias="departements")
-    towns: list[Town] | None = Field(None, alias="villes")
+@attr.s(auto_attribs=True, frozen=True)
+class EraLocationResponse:
+    departments: Optional[List[Department]] = attr.field(default=None, metadata={'alias': 'departements'})
+    towns: Optional[List[Town]] = attr.field(default=None, metadata={'alias': 'villes'})
+
+    @classmethod
+    def from_data(cls, data: dict) -> "EraLocationResponse":
+        mapped_data = {}
+        if 'departements' in data and data['departements'] is not None:
+            mapped_data['departments'] = [create_attrs_instance_from_dict(Department, d) for d in data['departements']]
+        if 'villes' in data and data['villes'] is not None:
+            mapped_data['towns'] = [create_attrs_instance_from_dict(Town, t) for t in data['villes']]
+
+        return cls(**mapped_data)
 
 
-class EraLocationRequest(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-    postal_code: str = Field(alias="query")
-    format: str = Field(alias="_format", default="json")
+@attr.s(auto_attribs=True, frozen=True)
+class EraLocationRequest:
+    postal_code: str = attr.field(metadata={'alias': 'query'})
+    format: str = attr.field(default="json", metadata={'alias': '_format'})

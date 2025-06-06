@@ -1,23 +1,25 @@
 from pydantic import field_validator, BaseModel
 
 
-class PostalCode(BaseModel):
-    value: str | None = None
+@attr.s(auto_attribs=True, frozen=True)
+class PostalCode:
+    value: Optional[str] = attr.field(validator=_validate_postal_code)
 
-    @field_validator('value')
-    @classmethod
-    def postal_code_is_correct(cls, value: str | None):
-        separator: str = ","
 
-        if value == "":
-            raise ValueError("must have at least one zipcode")
+def _validate_postal_code(instance, attribute, value: Optional[str]):
+    """
+    Validates if the postal code(s) are correctly formatted digits,
+    handling single codes or comma-separated lists.
+    """
+    separator: str = ","
 
-        if separator in value:
-            for code in value.split(separator):
-                if not code.isdigit():
-                    raise ValueError(f"{code} are not digits")
-        else:
-            if not value.isdigit():
-                raise ValueError(f"{value} are not digits")
+    if value == "" or value is None:
+        raise ValueError("must have at least one zipcode")
 
-        return value
+    if separator in value:
+        for code in value.split(separator):
+            if not code.isdigit():
+                raise ValueError(f"'{code}' are not digits")
+    else:
+        if not value.isdigit():
+            raise ValueError(f"'{value}' are not digits")

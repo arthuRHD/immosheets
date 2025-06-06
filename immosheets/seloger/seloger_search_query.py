@@ -1,87 +1,70 @@
-from pydantic import field_validator, BaseModel
+import attr
+from typing import Optional, Union
 from ..settings import settings
 
 
-class SelogerSearchQuery(BaseModel):
-    zipCodes: str
-    maximumPrice: str | None = None
-    minimumPrice: str | None = None
-    maximumFloor: str | None = None
-    minimumFloor: str | None = None
-    maximumLivingArea: str | None = None
-    minimumLivingArea: str | None = None
-    bedrooms: str | None = None
-    rooms: str | None = None
-    districtIds: str | None = None
-    pageSize: str = settings.page_size
-    pageIndex: str = "1"
-    includeNewConstructions: str | None = None
-    transactionType: str | None = None
-    realtyTypes: str | None = None
-    sortBy: str | None = None
+@attr.s(auto_attribs=True, frozen=True) 
+class SelogerSearchQuery:
+    zipCodes: str = attr.field(validator=_validate_zipcodes)
+    maximumPrice: Optional[str] = attr.field(default=None, validator=_validate_greater_than_zero_int)
+    minimumPrice: Optional[str] = None 
+    maximumFloor: Optional[str] = None 
+    minimumFloor: Optional[str] = attr.field(default=None, validator=_validate_greater_than_zero_int)
+    maximumLivingArea: Optional[str] = None 
+    minimumLivingArea: Optional[str] = attr.field(default=None, validator=_validate_greater_than_zero_float)
+    bedrooms: Optional[str] = attr.field(default=None, validator=_validate_min_one_bedroom_or_room)
+    rooms: Optional[str] = attr.field(default=None, validator=_validate_min_one_bedroom_or_room)
+    districtIds: Optional[str] = None
+    pageSize: str = attr.field(default=settings.page_size)
+    pageIndex: str = attr.field(default="1")
+    includeNewConstructions: Optional[str] = attr.field(default=None, validator=_validate_is_boolean_string)
+    transactionType: Optional[str] = None
+    realtyTypes: Optional[str] = None
+    sortBy: Optional[str] = None
 
-    @field_validator('maximumPrice')
-    @classmethod
-    def price_is_greater_than_zero(cls, price: str | None):
-        if price is not None:
-            if int(price) <= 0:
-                raise ValueError("maximumPrice is lesser then or equals 0")
-        return price
 
-    @field_validator('minimumFloor')
-    @classmethod
-    def floor_is_greater_than_zero(cls, floor: str | None):
-        if floor is not None:
-            if int(floor) <= 0:
-                raise ValueError("minimumFloor is lesser then or equals 0")
-        return floor
+def _validate_greater_than_zero_int(instance, attribute, value: str | None):
+    if value is not None:
+        try:
+            numeric_value = int(value)
+            if numeric_value <= 0:
+                raise ValueError(f"{attribute.name} must be greater than 0")
+        except ValueError:
+            raise ValueError(f"{attribute.name} must be a valid integer string")
 
-    @field_validator('minimumLivingArea')
-    @classmethod
-    def living_area_is_greater_than_zero(cls, living_area: str | None):
-        if living_area is not None:
-            if float(living_area) <= 0:
-                raise ValueError("living area is lesser then or equals 0")
-        return living_area
+def _validate_greater_than_zero_float(instance, attribute, value: str | None):
+    if value is not None:
+        try:
+            numeric_value = float(value)
+            if numeric_value <= 0:
+                raise ValueError(f"{attribute.name} must be greater than 0")
+        except ValueError:
+            raise ValueError(f"{attribute.name} must be a valid numeric string")
 
-    @field_validator("includeNewConstructions")
-    @classmethod
-    def is_boolean(cls, include: str | None):
-        if include is not None:
-            if include not in ["true", "false"]:
-                raise ValueError("includeNewConstructions is not a boolean")
-        return include
 
-    @field_validator("bedrooms")
-    @classmethod
-    def must_have_at_least_one_bedroom(cls, bedroom: str | None):
-        if bedroom is not None:
-            if int(bedroom) < 1:
-                raise ValueError("must have at least one bedroom")
-        return bedroom
+def _validate_is_boolean_string(instance, attribute, value: str | None):
+    if value is not None and value not in ["true", "false"]:
+        raise ValueError(f"{attribute.name} must be 'true' or 'false'")
 
-    @field_validator("rooms")
-    @classmethod
-    def must_have_at_least_one_room(cls, room: str | None):
-        if room is not None:
-            if int(room) < 1:
-                raise ValueError("must have at least one room")
-        return room
+def _validate_min_one_bedroom_or_room(instance, attribute, value: str | None):
+    if value is not None:
+        try:
+            num = int(value)
+            if num < 1:
+                raise ValueError(f"{attribute.name} must be at least 1")
+        except ValueError:
+            raise ValueError(f"{attribute.name} must be a valid integer string")
 
-    @field_validator('zipCodes')
-    @classmethod
-    def postal_code_is_correct(cls, zipCodes: str | None):
-        separator: str = ","
+def _validate_zipcodes(instance, attribute, value: str):
+    separator: str = ","
 
-        if zipCodes == "":
-            raise ValueError("must have at least one zipcode")
+    if not value:
+        raise ValueError("zipCodes must have at least one zipcode")
 
-        if separator in zipCodes:
-            for code in zipCodes.split(separator):
-                if not code.isdigit():
-                    raise ValueError(f"{code} are not digits")
-        else:
-            if not zipCodes.isdigit():
-                raise ValueError(f"{zipCodes} are not digits")
-
-        return zipCodes
+    if separator in value:
+        for code in value.split(separator):
+            if not code.isdigit():
+                raise ValueError(f"'{code}' in {attribute.name} are not digits")
+    else:
+        if not value.isdigit():
+            raise ValueError(f"'{value}' in {attribute.name} are not digits")
