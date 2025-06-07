@@ -1,4 +1,5 @@
-from pydantic import field_validator, BaseModel
+import attr
+from typing import Optional
 
 
 def _validate_postal_code(instance, attribute, value: Optional[str]):
