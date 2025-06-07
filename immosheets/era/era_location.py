@@ -1,5 +1,5 @@
 import attr
-from typing import List, Optional, Any
+from typing import List, Optional
 from .utils import create_attrs_instance_from_dict
 
 

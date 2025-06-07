@@ -1,26 +1,6 @@
 import attr
-from typing import Optional, Union
+from typing import Optional
 from ..settings import settings
-
-
-@attr.s(auto_attribs=True, frozen=True) 
-class SelogerSearchQuery:
-    zipCodes: str = attr.field(validator=_validate_zipcodes)
-    maximumPrice: Optional[str] = attr.field(default=None, validator=_validate_greater_than_zero_int)
-    minimumPrice: Optional[str] = None 
-    maximumFloor: Optional[str] = None 
-    minimumFloor: Optional[str] = attr.field(default=None, validator=_validate_greater_than_zero_int)
-    maximumLivingArea: Optional[str] = None 
-    minimumLivingArea: Optional[str] = attr.field(default=None, validator=_validate_greater_than_zero_float)
-    bedrooms: Optional[str] = attr.field(default=None, validator=_validate_min_one_bedroom_or_room)
-    rooms: Optional[str] = attr.field(default=None, validator=_validate_min_one_bedroom_or_room)
-    districtIds: Optional[str] = None
-    pageSize: str = attr.field(default=settings.page_size)
-    pageIndex: str = attr.field(default="1")
-    includeNewConstructions: Optional[str] = attr.field(default=None, validator=_validate_is_boolean_string)
-    transactionType: Optional[str] = None
-    realtyTypes: Optional[str] = None
-    sortBy: Optional[str] = None
 
 
 def _validate_greater_than_zero_int(instance, attribute, value: str | None):
@@ -68,3 +48,23 @@ def _validate_zipcodes(instance, attribute, value: str):
     else:
         if not value.isdigit():
             raise ValueError(f"'{value}' in {attribute.name} are not digits")
+
+
+@attr.s(auto_attribs=True, frozen=True)
+class SelogerSearchQuery:
+    zipCodes: str = attr.field(validator=_validate_zipcodes)
+    maximumPrice: Optional[str] = attr.field(default=None, validator=_validate_greater_than_zero_int)
+    minimumPrice: Optional[str] = None
+    maximumFloor: Optional[str] = None
+    minimumFloor: Optional[str] = attr.field(default=None, validator=_validate_greater_than_zero_int)
+    maximumLivingArea: Optional[str] = None
+    minimumLivingArea: Optional[str] = attr.field(default=None, validator=_validate_greater_than_zero_float)
+    bedrooms: Optional[str] = attr.field(default=None, validator=_validate_min_one_bedroom_or_room)
+    rooms: Optional[str] = attr.field(default=None, validator=_validate_min_one_bedroom_or_room)
+    districtIds: Optional[str] = None
+    pageSize: str = attr.field(default=settings.page_size)
+    pageIndex: str = attr.field(default="1")
+    includeNewConstructions: Optional[str] = attr.field(default=None, validator=_validate_is_boolean_string)
+    transactionType: Optional[str] = None
+    realtyTypes: Optional[str] = None
+    sortBy: Optional[str] = None

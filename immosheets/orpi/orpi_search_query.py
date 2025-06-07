@@ -1,5 +1,5 @@
 import attr
-from typing import List, Optional, Union
+from typing import List, Optional
 
 from immosheets.orpi.orpi_transaction_type import OrpiTransactionType
 
