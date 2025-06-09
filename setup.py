@@ -21,7 +21,7 @@ setup(
         "google-auth==2.23.4",
         "google-auth-httplib2==0.2.0",
         "google-auth-oauthlib==1.2.0",
-        "Deprecated==1.2.14"
+        "Deprecated==1.2.18"
     ],
     python_requires='>=3.10',
     classifiers=[
