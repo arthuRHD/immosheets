@@ -15,7 +15,7 @@ setup(
     packages=find_packages(),
     package_data={'logo': ['SVGLogo.svg']},
     install_requires=[
-        "requests==2.32.2",
+        "requests==2.32.4",
         "google-api-core==2.14.0",
         "google-api-python-client==2.122.0",
         "google-auth==2.23.4",
