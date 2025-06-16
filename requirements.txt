@@ -5,7 +5,7 @@ mkdocs
 mkdocs-git-revision-date-localized-plugin
 mkdocs-material
 requests==2.32.2
-google-api-core==2.14.0
+google-api-core==2.25.1
 google-api-python-client==2.122.0
 google-auth==2.23.4
 google-auth-httplib2==0.2.0
