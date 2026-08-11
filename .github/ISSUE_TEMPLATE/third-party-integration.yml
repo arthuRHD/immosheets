@@ -1,0 +1,36 @@
+name: Third-Party Integration Request
+description: Request support for a new third-party service or platform
+title: "[Integration]: "
+labels: ["enhancement", "integration"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new integration!
+  - type: input
+    id: service-name
+    attributes:
+      label: Service/Platform Name
+      description: What third-party service or platform would you like to integrate?
+      placeholder: e.g., Leboncoin, Excel, MongoDB
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case / Motivation
+      description: Why would this integration be useful? How will it be used?
+    validations:
+      required: true
+  - type: textarea
+    id: api-info
+    attributes:
+      label: API / Integration Details
+      description: Provide links to API documentation, SDKs, or any relevant technical details.
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Any other details or examples of how this should work.

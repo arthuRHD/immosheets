@@ -1,0 +1,33 @@
+name: Documentation Improvement
+description: Suggest improvements to the documentation
+title: "[Docs]: "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve our documentation!
+  - type: textarea
+    id: section
+    attributes:
+      label: Which section of the documentation needs improvement?
+      description: e.g. README, API reference, Getting started guide, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is the issue or missing information?
+      description: Describe what is unclear, missing, or incorrect.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested changes
+      description: How do you think this should be fixed or improved?
+  - type: input
+    id: link
+    attributes:
+      label: Link to the documentation page (if applicable)
+      placeholder: https://github.com/arthuRHD/immosheets/blob/master/...
